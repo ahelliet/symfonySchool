@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	{{ form_start(form) }}
+	{{ form_row(form.classe)}}
+	{{ form_row(form.nom)}}
+	{{ form_row(form.prenom)}}
+	{{ form_row(form.dateDeNaissance)}}
+	{{ form_row(form.moyenne)}}
+	{{ form_row(form.appreciation)}}
+	<button type="submit">Enregistrer</button>
+	{{ form_end(form) }}
+{% endblock %}

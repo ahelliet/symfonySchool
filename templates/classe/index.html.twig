@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<ul>
+		{% for classe in classes %}
+			La moyenne de la classe est :
+			<li>
+				{{ classe.nom}}
+			</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
