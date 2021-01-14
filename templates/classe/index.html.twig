@@ -1,12 +1,39 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<ul>
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="{{ path('accueil') }}">Accueil</a>
+		</li>
+		<li class="breadcrumb-item active">Toutes les classes</li>
+	</li>
+</ol>
+<table class="table table-hover">
+	<thead>
+		<tr class="table-primary">
+			<th style="width:50%" scope="col">Nom de la classe</th>
+			<th class="text-center" style="width:20%" scope="col">Nombre d'élèves</th>
+			<th class="text-center" style="width:20%" scope="col">Moyenne de classe</th>
+			<th class="text-center" style="width:10%" scope="col"></th>
+		</tr>
+	</thead>
+	<tbody>
 		{% for classe in classes %}
-			La moyenne de la classe est :
-			<li>
-				{{ classe.nom}}
-			</li>
+			<tr>
+				<td>
+					<a href="{{ path('showClasse', {'id': classe.id}) }}">{{classe.nom}}</a>
+				</td>
+				<td class="text-center">nb eleves</td>
+				<td class="text-center">Moyenne</td>
+				<td class="text-center">
+					<a href="{{ path('editClasse', {'id': classe.id}) }}">
+						<i class="far fa-edit"></i>
+					</a>
+					<a href="{{ path('deleteClasse', {'id': classe.id}) }}">
+						<i class="far fa-trash-alt"></i>
+					</a>
+				</td>
+			</tr>
 		{% endfor %}
-	</ul>
-{% endblock %}
+	</tbody>
+</table>{% endblock %}

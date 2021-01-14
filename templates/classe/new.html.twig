@@ -1,8 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	{{ form_start(form)}}
-	{{ form_row(form.nom)}}
-	<button type="submit">Ajouter une classe</button>
-	{{ form_end(form)}}
-{% endblock %}
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="{{ path('accueil') }}">Accueil</a>
+		</li>
+		<li class="breadcrumb-item">
+			<a href="{{ path('classe') }}">Toutes les classes</a>
+		</li>
+		<li class="breadcrumb-item active">Créer une nouvelle classe</li>
+	</li>
+</ol>
+
+{{ form_start(form)}}
+{{ form_row(form.nom)}}
+<button class="btn btn-primary" type="submit">Ajouter une classe</button>
+{{ form_end(form)}}{% endblock %}
