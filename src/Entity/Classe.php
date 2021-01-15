@@ -25,11 +25,6 @@ class Classe
     private $nom;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
-     */
-    private $moyenne;
-
-    /**
      * @ORM\OneToMany(targetEntity=Eleve::class, mappedBy="classe", orphanRemoval=true)
      */
     private $eleves;
@@ -52,18 +47,6 @@ class Classe
     public function setNom(string $nom): self
     {
         $this->nom = $nom;
-
-        return $this;
-    }
-
-    public function getMoyenne(): ?float
-    {
-        return $this->moyenne;
-    }
-
-    public function setMoyenne(?float $moyenne): self
-    {
-        $this->moyenne = $moyenne;
 
         return $this;
     }
