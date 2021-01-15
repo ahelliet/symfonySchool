@@ -23,7 +23,7 @@ class EleveController extends AbstractController
         $eleves = $paginator->paginate(
             $results,
             $request->query->getInt('page', 1),
-            7 //Le nombre d'élèves affiché par page
+            6 //Le nombre d'élèves affiché par page
         );
 
         $eleves->setCustomParameters([
