@@ -16,7 +16,6 @@ class ClasseType extends AbstractType
             ->add('nom', TextType::class, [
                 'attr' => [
                     'placeholder' => 'Entrez le nom de votre nouvelle classe',
-                    'label' => 'Chello',
                     'class' => 'form-control'
                 ]
             ]);
