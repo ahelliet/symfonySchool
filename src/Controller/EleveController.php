@@ -14,7 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class EleveController extends AbstractController
 {
     /**
-     * @Route("/eleve", name="eleve")
+     * @Route("/eleves", name="eleve")
      */
     public function index(EleveRepository $repo): Response
     {
@@ -25,8 +25,8 @@ class EleveController extends AbstractController
     }
 
     /**
-     * @Route("/eleve/new", name="newEleve")
-     * @Route("/eleve/{id}/edit", name="editEleve")
+     * @Route("/eleves/new", name="newEleve")
+     * @Route("/eleves/{id}/edit", name="editEleve")
      */
     public function newEleve(Request $request, EntityManagerInterface $manager, Eleve $eleve = null): Response
     {
@@ -51,7 +51,7 @@ class EleveController extends AbstractController
     }
 
     /**
-     * @Route("/eleve/{id}", name="showEleve")
+     * @Route("/eleves/{id}", name="showEleve")
      */
     public function showEleve(EleveRepository $repo, int $id): Response
     {
@@ -61,7 +61,7 @@ class EleveController extends AbstractController
     }
 
     /**
-     * @Route("/eleve/{id}/delete", name="deleteEleve")
+     * @Route("/eleves/{id}/delete", name="deleteEleve")
      */
     public function deleteEleve(EleveRepository $repo, EntityManagerInterface $manager, int $id): Response
     {

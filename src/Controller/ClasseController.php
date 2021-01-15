@@ -15,7 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ClasseController extends AbstractController
 {
     /**
-     * @Route("/classe", name="classe")
+     * @Route("/classes", name="classe")
      */
     public function index(ClasseRepository $repo): Response
     {
@@ -25,8 +25,8 @@ class ClasseController extends AbstractController
     }
 
     /**
-     * @Route("/classe/new", name="newClasse")
-     * @Route("/classe/{id}/edit", name="editClasse")
+     * @Route("/classes/new", name="newClasse")
+     * @Route("/classes/{id}/edit", name="editClasse")
      */
     public function newClasse(Request $request, EntityManagerInterface $manager, Classe $classe = null): Response
     {
@@ -50,7 +50,7 @@ class ClasseController extends AbstractController
     }
 
     /**
-     * @Route("/classe/{id}", name="showClasse")
+     * @Route("/classes/{id}", name="showClasse")
      */
     public function showClasse(ClasseRepository $repoClasse, EleveRepository $repoEleve, int $id): Response
     {
@@ -62,7 +62,7 @@ class ClasseController extends AbstractController
     }
 
     /**
-     * @Route("/classe/{id}/delete", name="deleteClasse")
+     * @Route("/classes/{id}/delete", name="deleteClasse")
      */
     public function deleteClasse(ClasseRepository $repo, EntityManagerInterface $manager, int $id): Response
     {
