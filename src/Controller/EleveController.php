@@ -19,7 +19,6 @@ class EleveController extends AbstractController
     public function index(EleveRepository $repo): Response
     {
         return $this->render('eleve/index.html.twig', [
-            'title' => 'Tous les élèves',
             'eleves' => $repo->findAll()
         ]);
     }

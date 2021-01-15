@@ -9,8 +9,17 @@
 		<li class="breadcrumb-item">
 			<a href="{{ path('accueil') }}">Accueil</a>
 		</li>
-		<li class="breadcrumb-item active">Tous les élèves</li>
+		<li class="breadcrumb-item active">Tous les élèves ({{eleves|length}})</li>
 	</ol>
+
+	<div class="row">
+		<div class="col-md-3 offset-md-9">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Rechercher un élève..." id="searchQuery">
+			</div>
+		</div>
+
+	</div>
 
 	<table class="table table-hover">
 		<thead>
@@ -25,7 +34,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			{% for eleve in eleves %}
+			{% for eleve in eleves|filter(eleve => eleve.nom > 6) %}
 				<tr>
 					<td>
 						<a href="{{ path('showClasse', {'id': eleve.classe.id}) }}">{{eleve.classe.nom}}</a>
@@ -50,4 +59,30 @@
 		</tbody>
 	</table>
 
+	<div>
+		<ul class="pagination justify-content-center">
+
+			<li class="page-item disabled">
+				<a class="page-link" href="#">&laquo;</a>
+			</li>
+			<li class="page-item active">
+				<a class="page-link" href="#">1</a>
+			</li>
+			<li class="page-item">
+				<a class="page-link" href="#">2</a>
+			</li>
+			<li class="page-item">
+				<a class="page-link" href="#">3</a>
+			</li>
+			<li class="page-item">
+				<a class="page-link" href="#">4</a>
+			</li>
+			<li class="page-item">
+				<a class="page-link" href="#">5</a>
+			</li>
+			<li class="page-item">
+				<a class="page-link" href="#">&raquo;</a>
+			</li>
+		</ul>
+	</div>
 {% endblock %}
