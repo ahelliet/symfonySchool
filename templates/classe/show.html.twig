@@ -8,7 +8,11 @@
 		<li class="breadcrumb-item">
 			<a href="{{ path('classe') }}">Toutes les classes</a>
 		</li>
-		<li class="breadcrumb-item active">{{classe.nom}}</li>
+		<li class="breadcrumb-item active">{{classe.nom}}
+			({{eleves|length}}
+			élèves, moyenne :{{ moyenneDeClasse | number_format(2)}}/20)
+		</li>
+
 	</ol>
 
 	<table class="table table-hover">
@@ -44,4 +48,5 @@
 			{% endfor %}
 		</tbody>
 	</table>
+
 {% endblock %}

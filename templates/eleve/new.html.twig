@@ -8,7 +8,11 @@
 		<li class="breadcrumb-item">
 			<a href="{{ path('eleve') }}">Tous les élèves</a>
 		</li>
-		<li class="breadcrumb-item active">Créer une fiche d'élève</li>
+		{% if eleve.id %}
+			<li class="breadcrumb-item active">Modifier une fiche d'élève</li>
+		{% else %}
+			<li class="breadcrumb-item active">Créer une fiche d'élève</li>
+		{% endif %}
 	</ol>
 
 	{{ form_start(form) }}

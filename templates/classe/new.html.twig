@@ -8,7 +8,12 @@
 		<li class="breadcrumb-item">
 			<a href="{{ path('classe') }}">Toutes les classes</a>
 		</li>
-		<li class="breadcrumb-item active">Créer une nouvelle classe</li>
+
+		{% if classe.id %}
+			<li class="breadcrumb-item active">Modifier le nom de la classe</li>
+		{% else %}
+			<li class="breadcrumb-item active">Créer une nouvelle classe</li>
+		{% endif %}
 	</li>
 </ol>
 

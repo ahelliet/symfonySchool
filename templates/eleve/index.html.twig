@@ -15,10 +15,11 @@
 	<table class="table table-hover">
 		<thead>
 			<tr class="table-primary">
-				<th style="width:10%" scope="col">Nom</th>
-				<th class="text-center" style="width:20%" scope="col">Prénom</th>
-				<th class="text-center" style="width:20%" scope="col">Date de naissance</th>
-				<th class="text-center" style="width:30%" scope="col">Appréciation</th>
+				<th style="width:10%" scope="col">Classe</th>
+				<th class="text-center" style="width:15%">Nom</th>
+				<th class="text-center" style="width:15%" scope="col">Prénom</th>
+				<th class="text-center" style="width:15%" scope="col">Date de naissance</th>
+				<th class="text-center" style="width:25%" scope="col">Appréciation</th>
 				<th class="text-center" style="width:10%" scope="col">Moyenne</th>
 				<th class="text-center" style="width:10%" scope="col"></th>
 			</tr>
@@ -27,6 +28,9 @@
 			{% for eleve in eleves %}
 				<tr>
 					<td>
+						<a href="{{ path('showClasse', {'id': eleve.classe.id}) }}">{{eleve.classe.nom}}</a>
+					</td>
+					<td class="text-center">
 						<a href="{{ path('showEleve', {'id': eleve.id}) }}">{{eleve.nom}}</a>
 					</td>
 					<td class="text-center">{{eleve.prenom}}</td>

@@ -19,9 +19,8 @@ class ClasseController extends AbstractController
      */
     public function index(ClasseRepository $repo): Response
     {
-        $classes = $repo->findAll();
         return $this->render('classe/index.html.twig', [
-            'classes' => $classes,
+            'classes' => $repo->findAllWithNombreElevesAndMoyenne(),
         ]);
     }
 
@@ -55,13 +54,10 @@ class ClasseController extends AbstractController
      */
     public function showClasse(ClasseRepository $repoClasse, EleveRepository $repoEleve, int $id): Response
     {
-        $classe = $repoClasse->find($id);
-        $eleves = $repoEleve->findBy([
-            'classe' => $id
-        ]);
         return $this->render('classe/show.html.twig', [
-            'classe' => $classe,
-            'eleves' => $eleves
+            'classe' => $repoClasse->find($id),
+            'moyenneDeClasse' => $repoClasse->FindMoyenneDeClasse($id),
+            'eleves' => $repoEleve->findBy(['classe' => $id])
         ]);
     }
 

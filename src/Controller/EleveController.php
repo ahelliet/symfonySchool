@@ -18,10 +18,9 @@ class EleveController extends AbstractController
      */
     public function index(EleveRepository $repo): Response
     {
-        $eleves = $repo->findAll();
         return $this->render('eleve/index.html.twig', [
             'title' => 'Tous les élèves',
-            'eleves' => $eleves
+            'eleves' => $repo->findAll()
         ]);
     }
 
@@ -42,7 +41,7 @@ class EleveController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $manager->persist($eleve);
             $manager->flush();
-            return $this->redirectToRoute('eleve');
+            return $this->redirectToRoute('showEleve', ['id' => $eleve->getId()]);
         }
 
         return $this->render('eleve/new.html.twig', [
@@ -56,9 +55,8 @@ class EleveController extends AbstractController
      */
     public function showEleve(EleveRepository $repo, int $id): Response
     {
-        $eleve = $repo->find($id);
         return $this->render('eleve/show.html.twig', [
-            'eleve' => $eleve,
+            'eleve' => $repo->find($id),
         ]);
     }
 

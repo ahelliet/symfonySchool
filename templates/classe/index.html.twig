@@ -23,8 +23,8 @@
 				<td>
 					<a href="{{ path('showClasse', {'id': classe.id}) }}">{{classe.nom}}</a>
 				</td>
-				<td class="text-center">nb eleves</td>
-				<td class="text-center">Moyenne</td>
+				<td class="text-center">{{ classe.nombreEleves}}</td>
+				<td class="text-center">{{ classe.moyenneDeClasse|number_format(2)}}</td>
 				<td class="text-center">
 					<a href="{{ path('editClasse', {'id': classe.id}) }}">
 						<i class="far fa-edit"></i>
