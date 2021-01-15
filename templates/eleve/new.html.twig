@@ -1,5 +1,16 @@
 {% extends "base.html.twig" %}
 
+{% block title %}
+	{% if eleve.id %}
+		SymfonySchool -
+		{{eleve.nom}}
+		{{eleve.prenom}}
+	{% else %}
+		SymfonySchool - Créer une fiche d'élève
+	{% endif %}
+{% endblock %}
+
+
 {% block body %}
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item">

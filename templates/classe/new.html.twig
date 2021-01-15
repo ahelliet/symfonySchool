@@ -1,5 +1,15 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}
+	{% if classe.id %}
+		SymfonySchool -
+		{{classe.nom}}
+	{% else %}
+		SymfonySchool - Créer une nouvelle classe
+	{% endif %}
+{% endblock %}
+
+
 {% block body %}
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item">
