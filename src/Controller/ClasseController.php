@@ -21,6 +21,7 @@ class ClasseController extends AbstractController
     {
         return $this->render('classe/index.html.twig', [
             'classes' => $repo->findAllWithNombreElevesAndMoyenne(),
+            'nbClasses'=> $repo->countClasses()
         ]);
     }
 

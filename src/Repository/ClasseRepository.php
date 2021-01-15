@@ -49,6 +49,14 @@ class ClasseRepository extends ServiceEntityRepository
             ->getSingleScalarResult();
     }
 
+    public function countClasses()
+    {
+        return $this->createQueryBuilder("c")
+        ->select("COUNT(c.id)")
+        ->getQuery()
+        ->getSingleScalarResult();
+    }
+
     // /**
     //  * @return Classe[] Returns an array of Classe objects
     //  */

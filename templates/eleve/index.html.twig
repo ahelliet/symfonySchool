@@ -13,8 +13,15 @@
 	</ol>
 
 {% if eleves is empty %}
-	Vous devez créer une <a class="btn btn-secondary" href="">classe</a> avant d'ajouter un élève.
-	<button class="btn btn-primary">Créer un élève</button>
+	{# Avant de continuer vous devez <a class="btn btn-secondary" href="">créer une classe</a> #}
+	<div class="jumbotron">
+  <h1 class="display-3">Aucun(s) élève(s)</h1>
+  <p class="lead">N'oubliez pas d'<a href="{{ path('newClasse') }}">ajouter une classe</a> avant d'enregistrer un nouvel élève.</p>
+  <hr class="my-4">
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{{ path('newEleve') }}" role="button">Créer un élève</a>
+  </p>
+</div>
 {% else %}
 	<div class="row">
 		<div class="col-md-3 offset-md-9">

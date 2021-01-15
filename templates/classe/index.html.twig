@@ -10,13 +10,19 @@
 		<li class="breadcrumb-item">
 			<a href="{{ path('accueil') }}">Accueil</a>
 		</li>
-		<li class="breadcrumb-item active">Toutes les classes</li>
+		<li class="breadcrumb-item active">Toutes les classes | Total : {{nbClasses}}</li>
 	</li>
 </ol>
 
 {% if classes is empty %}
-	Aucun élève n'a été enregistré.
-	<button class="btn btn-primary">Créer une classe</button>
+	<div class="jumbotron">
+  <h1 class="display-3">Aucune(s) classe(s)</h1>
+  <p class="lead">Afin de pouvoir ajouter des élèves plus tard vous devez commencer par créer une classe.</p>
+  <hr class="my-4">
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{{ path('newClasse') }}" role="button">Créer une classe</a>
+  </p>
+</div>
 {% else %}
 	<table class="table table-hover">
 	<thead>
