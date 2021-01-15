@@ -44,7 +44,7 @@ class EleveType extends AbstractType
             ])
             ->add('moyenne', TextType::class, [
                 'attr' => [
-                    'placeholder' => 'La moyenne de l\'élève',
+                    'placeholder' => 'exemple : 12.5',
                     'class' => 'form-control'
                 ]
             ])
