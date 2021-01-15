@@ -19,30 +19,32 @@ class EleveType extends AbstractType
         $builder
             ->add('classe', EntityType::class, [
                 'class' => Classe::class,
-                'choice_label' => 'nom'
+                'choice_label' => 'nom',
+                'placeholder' => 'Veuillez choisir',
+                'attr' => ['class' => 'form-control'],
+                'label' => 'La classe de l\'élève'
             ])
             ->add('nom', TextType::class, [
                 'attr' => [
-                    'placeholder' => 'Entrez le nom de votre nouvelle classe',
+                    'placeholder' => 'Entrer le nom de l\'élève',
                     'class' => 'form-control'
                 ]
             ])
             ->add('prenom', TextType::class, [
                 'attr' => [
-                    'placeholder' => 'Entrez le nom de votre nouvelle classe',
+                    'placeholder' => 'Entrer le prénom de l\'élève',
                     'class' => 'form-control'
                 ]
             ])
             ->add('dateDeNaissance', BirthdayType::class, [
+                'widget' => 'single_text',
                 'attr' => [
                     'class' => 'form-control',
-                    'widget' => 'single_text',
-                    'format' => 'dd-MM-yy',
                 ]
             ])
             ->add('moyenne', TextType::class, [
                 'attr' => [
-                    'placeholder' => 'Entrez le nom de votre nouvelle classe',
+                    'placeholder' => 'La moyenne de l\'élève',
                     'class' => 'form-control'
                 ]
             ])

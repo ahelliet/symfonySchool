@@ -16,12 +16,38 @@
 	</ol>
 
 	{{ form_start(form) }}
-	{{ form_row(form.classe)}}
-	{{ form_row(form.nom)}}
-	{{ form_row(form.prenom)}}
-	{{ form_row(form.dateDeNaissance)}}
-	{{ form_row(form.moyenne)}}
+	<div class="form-row">
+		<div class="col">
+			<div class="form-group">
+				{{ form_row(form.classe)}}
+			</div>
+		</div>
+		<div class="col">
+			{{ form_row(form.nom)}}
+		</div>
+		<div class="col">
+			{{ form_row(form.prenom)}}
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="col">
+			{{ form_row(form.dateDeNaissance)}}
+		</div>
+		<div class="col">
+			{{ form_row(form.moyenne)}}
+		</div>
+
+	</div>
+
 	{{ form_row(form.appreciation)}}
-	<button type="submit" class="btn btn-primary">Enregistrer</button>
+	<div class="form-row">
+		<div class="col">
+			<div class="form-group">
+				<button style="margin-top: 15px" type="submit" class="btn btn-primary form-control">Enregistrer</button>
+			</div>
+
+		</div>
+	</div>
+
 	{{ form_end(form) }}
 {% endblock %}
