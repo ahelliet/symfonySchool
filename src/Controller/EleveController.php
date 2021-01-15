@@ -16,10 +16,11 @@ class EleveController extends AbstractController
     /**
      * @Route("/eleves", name="eleve")
      */
-    public function index(EleveRepository $repo): Response
+    public function index(EleveRepository $repo, Request $request): Response
     {
         return $this->render('eleve/index.html.twig', [
-            'eleves' => $repo->findAll()
+            'eleves' => $repo->findAll(),
+            'nbEleves'=> $repo->countEleves()
         ]);
     }
 

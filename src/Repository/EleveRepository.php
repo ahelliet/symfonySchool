@@ -19,6 +19,14 @@ class EleveRepository extends ServiceEntityRepository
         parent::__construct($registry, Eleve::class);
     }
 
+    public function countEleves()
+    {
+        return $this->createQueryBuilder("e")
+        ->select("COUNT(e.id)")
+        ->getQuery()
+        ->getSingleScalarResult();
+    }
+
     // /**
     //  * @return Eleve[] Returns an array of Eleve objects
     //  */

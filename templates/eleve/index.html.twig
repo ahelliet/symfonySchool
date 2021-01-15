@@ -5,11 +5,13 @@
 {% endblock %}
 
 {% block body %}
+<pre>
+</pre>
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item">
 			<a href="{{ path('accueil') }}">Accueil</a>
 		</li>
-		<li class="breadcrumb-item active">Tous les élèves ({{eleves|length}})</li>
+		<li class="breadcrumb-item active">Tous les élèves | Total : {{nbEleves}}</li>
 	</ol>
 
 	<div class="row">
@@ -34,10 +36,10 @@
 			</tr>
 		</thead>
 		<tbody>
-			{% for eleve in eleves|filter(eleve => eleve.nom > 6) %}
+			{% for eleve in eleves%}
 				<tr>
 					<td>
-						<a href="{{ path('showClasse', {'id': eleve.classe.id}) }}">{{eleve.classe.nom}}</a>
+						{# <a href="{{ path('showClasse', {'id': eleve.classe.id}) }}">{{eleve.classe.nom}}</a> #}
 					</td>
 					<td class="text-center">
 						<a href="{{ path('showEleve', {'id': eleve.id}) }}">{{eleve.nom}}</a>
@@ -61,27 +63,15 @@
 
 	<div>
 		<ul class="pagination justify-content-center">
-
-			<li class="page-item disabled">
+					<li class="page-item disabled">
 				<a class="page-link" href="#">&laquo;</a>
 			</li>
-			<li class="page-item active">
-				<a class="page-link" href="#">1</a>
+
+				<li class="page-item active">
+				<a class="page-link" href="">1</a>
 			</li>
-			<li class="page-item">
-				<a class="page-link" href="#">2</a>
-			</li>
-			<li class="page-item">
-				<a class="page-link" href="#">3</a>
-			</li>
-			<li class="page-item">
-				<a class="page-link" href="#">4</a>
-			</li>
-			<li class="page-item">
-				<a class="page-link" href="#">5</a>
-			</li>
-			<li class="page-item">
-				<a class="page-link" href="#">&raquo;</a>
+						<li class="page-item">
+				<a class="page-link" href="">&raquo;</a>
 			</li>
 		</ul>
 	</div>
