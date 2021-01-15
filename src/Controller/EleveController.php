@@ -6,6 +6,7 @@ use App\Entity\Eleve;
 use App\Form\EleveType;
 use App\Repository\EleveRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,10 +17,22 @@ class EleveController extends AbstractController
     /**
      * @Route("/eleves", name="eleve")
      */
-    public function index(EleveRepository $repo, Request $request): Response
+    public function index(EleveRepository $repo, PaginatorInterface $paginator, Request $request): Response
     {
+        $results = $repo->findAll();
+        $eleves = $paginator->paginate(
+            $results,
+            $request->query->getInt('page', 1),
+            7 //Le nombre d'élèves affiché par page
+        );
+
+        $eleves->setCustomParameters([
+            'align' => 'center', # center|right (for template: twitter_bootstrap_v4_pagination)
+            'size' => 'small'
+        ]);
+
         return $this->render('eleve/index.html.twig', [
-            'eleves' => $repo->findAll(),
+            'eleves' => $eleves,
             'nbEleves'=> $repo->countEleves()
         ]);
     }

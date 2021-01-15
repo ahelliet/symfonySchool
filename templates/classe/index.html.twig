@@ -13,7 +13,12 @@
 		<li class="breadcrumb-item active">Toutes les classes</li>
 	</li>
 </ol>
-<table class="table table-hover">
+
+{% if classes is empty %}
+	Aucun élève n'a été enregistré.
+	<button class="btn btn-primary">Créer une classe</button>
+{% else %}
+	<table class="table table-hover">
 	<thead>
 		<tr class="table-primary">
 			<th style="width:50%" scope="col">Nom de la classe</th>
@@ -41,4 +46,7 @@
 			</tr>
 		{% endfor %}
 	</tbody>
-</table>{% endblock %}
+</table>
+{% endif %}
+
+{% endblock %}
