@@ -25,9 +25,8 @@ class ClasseRepository extends ServiceEntityRepository
     public function findAllWithNombreElevesAndMoyenne()
     {
         return $this->createQueryBuilder('c')
-            ->leftJoin('c.eleves', 'e')
+            ->leftJoin('c.eleves', 'e', 'WITH', 'c.id = e.classe')
             ->select('c.id, c.nom, count(e.id) as nombreEleves, sum(e.moyenne)/count(e.id) as moyenneDeClasse')
-            ->where('c.id = e.classe')
             ->groupBy('c.id')
             ->getQuery()
             ->getResult();
@@ -39,10 +38,9 @@ class ClasseRepository extends ServiceEntityRepository
     public function FindMoyenneDeClasse(int $id)
     {
         return $this->createQueryBuilder('c')
-            ->leftJoin('c.eleves', 'e')
+            ->leftJoin('c.eleves', 'e', 'WITH', 'c.id = e.classe')
             ->select('sum(e.moyenne)/count(e.id) as moyenneDeClasse')
-            ->where('c.id = e.classe')
-            ->andWhere('c.id = :id')
+            ->where('c.id = :id')
             ->setParameter('id', $id)
             ->groupBy('c.id')
             ->getQuery()
@@ -52,9 +50,9 @@ class ClasseRepository extends ServiceEntityRepository
     public function countClasses()
     {
         return $this->createQueryBuilder("c")
-        ->select("COUNT(c.id)")
-        ->getQuery()
-        ->getSingleScalarResult();
+            ->select("COUNT(c.id)")
+            ->getQuery()
+            ->getSingleScalarResult();
     }
 
     // /**
